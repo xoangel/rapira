@@ -1,0 +1,64 @@
+.menu_group{
+    height: 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    &__button{
+        position: relative;
+        color: $white-color;
+        padding: 0 14px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color .5s ease;
+    }
+
+    &__button:has(.mg__highlight){
+        color: $blue-color;
+        transition: color .5s ease;
+    }
+}
+
+.mg__highlight{
+    position: absolute;
+    background-color: $white-color;
+    opacity: .17;
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+@media screen and (max-width: 640px) {
+    .menu_group{
+        position: absolute;
+        visibility: hidden;
+        background-color: $black-color;
+        opacity: 0;
+        width: 100%;
+        flex-direction: column;
+        left: 0;
+        top: -50svh;
+        height: fit-content;
+        padding: 18px 18px;
+        z-index: 1;
+        border-radius: 0 0 12px 12px;
+        transition: opacity .5s ease-in-out, top .5s ease-in-out, visibility 0s .5s;
+
+        &__button{
+            height: 42px;
+            width: 100%;
+        }
+
+    }
+
+    .mobile_menu .menu_group{
+        opacity: 1;
+        visibility: visible;
+        top: 62px;
+        transition: all .5s ease-in-out;
+    }
+}
