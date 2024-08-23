@@ -7,18 +7,19 @@ gsap.registerPlugin(Flip);
 
 const selection: Ref<Element | null> = ref(null);
 const menuGroup: Ref<Element | null> = ref(null);
+let selected: Element | undefined;
 const router = useRouter();
 
 onMounted(async ()=>{
     //Дожидаемся, пока роутер установит классы чтобы определить, где мы находимся
     await router.isReady();
-    const selected = menuGroup.value?.getElementsByClassName("router-link-active")[0];
-    (selected as any)?.appendChild(selection.value);
+    selected = menuGroup.value?.getElementsByClassName("router-link-active")[0];
+    if(selected)(selected as any).appendChild(selection.value);
 })
 
 //Подсветка выбранного пункта меню
 function setSelectedButton(event: Event){
-    if(event.target && !(event.target as any).classList.contains("mg__highlight")){
+    if(event.target && !(event.target as any).classList.contains("mg__highlight") && selected){
         const toContainer: EventTarget = event.target;
         const state = Flip.getState(selection.value);
         (toContainer as any).appendChild(selection.value);

@@ -17,6 +17,7 @@ import TheHeader from './widgets/header/TheHeader.vue';
 @tailwind utilities;
 
 @import "./assets/fadeTransition.scss";
+@import "./assets/swipeTransition.scss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
   *{
@@ -37,6 +38,7 @@ import TheHeader from './widgets/header/TheHeader.vue';
 
   h2{
     font-size: 24px;
+    font-weight: 600;
   }
 
   p{
@@ -54,7 +56,16 @@ import TheHeader from './widgets/header/TheHeader.vue';
 
   #app{
     background-color: $background-color;
-    height: 100svh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 62px;
+  }
+
+  .main{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   input:focus-visible{

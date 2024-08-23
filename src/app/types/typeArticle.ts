@@ -2,6 +2,7 @@ export default interface Article{
     _id: number,
     title: string,
     date: string,
+    cover: string,
     teaser: string,
     reading_time: number,
     comments: Comment[],

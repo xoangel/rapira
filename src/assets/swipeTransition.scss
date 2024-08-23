@@ -1,0 +1,23 @@
+.swipe-enter-active, .swipe-leave-active {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .swipe-enter-from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  
+  .swipe-leave-to {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  
+  .swipe-back-enter-from {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+  
+  .swipe-back-leave-to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }

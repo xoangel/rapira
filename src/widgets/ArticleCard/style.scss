@@ -1,0 +1,27 @@
+.article{
+    cursor: pointer;
+    &__cover{
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1.6/1;
+        border-radius: 12px;
+        overflow: hidden;
+        background-color: $light-grey-color;
+
+        &__image{
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    
+}
+
+.grey_dot{
+    background-color: $light-grey-color;
+    width: 3px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+}

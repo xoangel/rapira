@@ -39,7 +39,7 @@
             &__line:nth-child(2){
                 width: 2px;
                 height: 100%;
-                left: 42%;
+                left: 43%;
                 transform: rotate(0deg);
                 transition: all .3s ease-in-out;
             }
