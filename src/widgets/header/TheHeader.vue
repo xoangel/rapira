@@ -8,11 +8,11 @@ const isMobile = computed(() => window.matchMedia("(max-width: 640px)").matches)
 </script>
 
 <template>
-    <header>
+    <nav>
         <MenuIcon v-if="isMobile"/>
         <img class="logo" src="/logo.svg" alt="logo">
         <MenuGroup />
-    </header>
+    </nav>
 </template>
 
 <style scoped lang="scss">

@@ -12,6 +12,10 @@ import TheHeader from './widgets/header/TheHeader.vue';
 </template>
 
 <style lang="scss">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import "./assets/fadeTransition.scss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
@@ -21,7 +25,7 @@ import TheHeader from './widgets/header/TheHeader.vue';
     box-sizing: border-box;
   }
 
-  h1, h2, h3, h4, h5, h6, p, a, button, div, span{
+  h1, h2, h3, h4, h5, h6, p, a, button, div, span, input, input::placeholder{
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -46,5 +50,14 @@ import TheHeader from './widgets/header/TheHeader.vue';
 
   a{
     text-decoration: none;
+  }
+
+  #app{
+    background-color: $background-color;
+    height: 100svh;
+  }
+
+  input:focus-visible{
+    outline: none;
   }
 </style>

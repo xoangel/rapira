@@ -1,0 +1,28 @@
+.tag{
+    height: 32px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: $light-blue-color;
+    border-radius: 24px;
+    transition: all .3s ease-in-out;
+
+    &__name{
+        color: $blue-color;
+        transition: all .3s ease-in-out;
+    }
+
+}
+
+.checked{
+    background-color: $blue-color;
+    transition: all .3s ease-in-out;
+}
+
+.checked{
+    .tag__name{
+        color: $white-color;
+        transition: all .3s ease-in-out;
+    }
+}

@@ -10,7 +10,7 @@ const menuGroup: Ref<Element | null> = ref(null);
 const router = useRouter();
 
 onMounted(async ()=>{
-    //Дожидаемся, пока роутер смонтирует классы
+    //Дожидаемся, пока роутер установит классы чтобы определить, где мы находимся
     await router.isReady();
     const selected = menuGroup.value?.getElementsByClassName("router-link-active")[0];
     (selected as any)?.appendChild(selection.value);
@@ -32,13 +32,13 @@ function setSelectedButton(event: Event){
 </script>
 
 <template>
-    <nav ref="menuGroup" class="menu_group">
+    <div ref="menuGroup" class="menu_group">
         <router-link @click.stop = setSelectedButton($event) to="/main" class="menu_group__button"> Главная </router-link>
         <router-link @click.stop = setSelectedButton($event) to="/" class="menu_group__button"> 
             Блог 
         </router-link>
         <span ref="selection" class="mg__highlight"></span>
-    </nav>
+    </div>
 </template>
 
 <style scoped lang="scss">
