@@ -14,7 +14,7 @@ onMounted(async ()=>{
     //Дожидаемся, пока роутер установит классы чтобы определить, где мы находимся
     await router.isReady();
     selected = menuGroup.value?.getElementsByClassName("router-link-active")[0];
-    if(selected)(selected as any).appendChild(selection.value);
+    if(selected)(selected as any).appendChild(selection.value); else menuGroup.value?.removeChild((selection.value as Element))
 })
 
 //Подсветка выбранного пункта меню

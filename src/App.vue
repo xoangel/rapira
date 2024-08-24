@@ -5,7 +5,7 @@ import TheHeader from './widgets/header/TheHeader.vue';
 <template>
   <TheHeader />
   <router-view v-slot="{ Component, route }">
-    <transition :name="(route.meta.transition as string) || 'fade'">
+    <transition :name="(route.meta.transition as string) || 'fade'" mode="out-in">
       <component :is="Component" />
     </transition>
   </router-view>
