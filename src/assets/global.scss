@@ -47,7 +47,7 @@
   .main{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: calc(100svh - $header-height);
   }
 
   input:focus-visible{
