@@ -1,0 +1,12 @@
+.stagger-enter-active, .stagger-leave-active {
+    transition: all 0.4s ease;
+  }
+  
+  .stagger-enter-from, .stagger-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .stagger-move {
+    transition: transform 0.4s ease;
+  }

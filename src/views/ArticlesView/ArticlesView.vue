@@ -6,20 +6,20 @@ import { router } from '../../app/config/router';
 const articleStore = useArticleStore();
 
 function showArticle(id: number){
-    router.push(`/article/${id}`);
+    router.push(`/blog/article/${id}`);
 }
 </script>
 
 <template>
-    <main class="scrollable_section"> 
-        <div class="articles_list grid grid-cols-3	">
+    <main class="scrollable_section main">             
+        <transition-group name="stagger" tag="article" class="articles_list grid grid-cols-3">
             <ArticleCard @click.stop="showArticle(article._id)" v-for="article in articleStore.articlesToDisplay" :key="article._id" :article-data="article"/>
             <div v-if="articleStore.articlesToDisplay.length===0" class="articles_list__not_found flex flex-col items-center gap-1.5">
                 <img src="/search_list.svg" alt="not found">
                 <p class="caption font-semibold text-center">Поиск не дал результатов</p>
                 <p class="caption text-center">Повторите поиск или используйте фильтр для структуризации контента</p>
             </div>
-        </div>
+        </transition-group>
     </main>
 </template>
 

@@ -6,18 +6,22 @@ import ArticlePage from "../../pages/ArticlePage.vue";
 export const router = createRouter({
     routes: [
         {
-            path: "/",
+            path: "/blog",
             component: IndexPage,
         },
         {
-            path: "/main",
+            path: "/",
             component: NotFound
         },
         {
-            path: "/article/:id",
+            path: "/blog/article/:id",
             component: ArticlePage,
-            meta: { transition: "swipe" }
-        }
+            //meta: { transition: "swipe" }
+        },
+        {
+            path: '/:pathMatch(.*)*', // Обработчик для всех несуществующих маршрутов
+            component: NotFound,
+        },
     ],
     history: createWebHistory()
 })

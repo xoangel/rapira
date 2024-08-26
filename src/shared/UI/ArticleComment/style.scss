@@ -1,0 +1,13 @@
+.comment{
+    padding: 12px;
+    gap: 12px;
+    &__avatar{
+        border-radius: 50%;
+        height: 38px;
+        aspect-ratio: 1;
+    }
+
+    &__data{
+        gap: 2px;
+    }
+}

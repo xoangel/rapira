@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Article from '../../app/types/typeArticle';
-import TagParam from '../../shared/TagParam/TagParam.vue';
-import formatComments from './lib/formatComments';
+import TagParam from '../../shared/UI/TagParam/TagParam.vue';
+import formatComments from '../../shared/lib/formatComments';
 const props = defineProps<{
     articleData: Article
 }>();
@@ -28,7 +28,7 @@ const props = defineProps<{
         <h2 class="article__title">{{ props.articleData.title }}</h2>
         <p class="article__teaser">{{ props.articleData.teaser }}</p>
         <div class="article__taglist flex flex-wrap gap-2">
-            <TagParam v-for="tag in articleData.tags" :key="tag" :tag="tag" />
+            <TagParam v-for="tag in articleData.tags" :key="tag" :tag="tag" active />
         </div>
     </article>
 </template>

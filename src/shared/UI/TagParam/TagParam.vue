@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useArticleStore } from '../../app/store/useArticleStore';
+import { useArticleStore } from '../../../app/store/useArticleStore';
 const props = defineProps({
-    tag: String
+    tag: String,
+    active: Boolean
 });
 
 const articleStore = useArticleStore();
@@ -9,7 +10,7 @@ const addToFilters = () => articleStore.selectedTags.includes((props.tag as stri
 </script>
 
 <template>
-    <button @click="addToFilters()" class="inline_tag">
+    <button @click.stop="active ? addToFilters() : ''" :class="`inline_tag ${active ? 'active' : ''}`">
         <p class="inline_tag__name"> {{ props.tag }} </p>
     </button>
 </template>
@@ -25,6 +26,7 @@ const addToFilters = () => articleStore.selectedTags.includes((props.tag as stri
     border-radius: 24px;
     box-shadow: 0 0 36px #ffffff00;
     transition: all .3s ease-in-out;
+    cursor: default;
 
         &__name{
             font-size: 14px;
@@ -34,7 +36,11 @@ const addToFilters = () => articleStore.selectedTags.includes((props.tag as stri
 
     }
 
-    .inline_tag:hover{
+    .inline_tag.active{
+        cursor: pointer;
+    }
+
+    .inline_tag.active:hover{
         box-shadow: 0 0 36px #3E97FF75;
         transition: all .5s ease;
     }

@@ -1,9 +1,14 @@
+.main{
+    height: calc(100svh - $header-height);
+}
+
 .articles_list{
     background-color: $white-color;
     border-radius: 12px;
     padding: 30px;
     gap: 40px 20px;
     width: calc(100% - 100px);
+    max-width: 1700px;
     margin: 20px auto;
 
     &__not_found{
@@ -17,7 +22,6 @@
 }
 
 .scrollable_section{
-    height: 100%;
     overflow: hidden scroll;
 }
 

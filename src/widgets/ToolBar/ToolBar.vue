@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import DropdownButton from '../../shared/DropdownButton/DropdownButton.vue';
-import TagButton from '../../shared/TagButton/TagButton.vue';
+import DropdownButton from '../../shared/UI/DropdownButton/DropdownButton.vue';
+import TagButton from '../../shared/UI/TagButton/TagButton.vue';
 import { useArticleStore } from '../../app/store/useArticleStore';
 import { Ref, ref } from 'vue';
 
@@ -8,6 +8,7 @@ const articleStore = useArticleStore();
 const tagline: Ref<Element | null> = ref(null);
 const showTagline: Ref<Array<string>> = ref([]);
 const searchValue: Ref<string> = ref("");
+const toggleTaglineVisibility = ()=>showTagline.value.length === 0 ? showTagline.value.push('1') : showTagline.value.pop();
 const toggleFilter = (tag: string)=>articleStore.selectedTags.includes(tag) ? articleStore.selectedTags = articleStore.selectedTags.filter(item=>item!=tag) : articleStore.selectedTags.push(tag);
 const updateSearchLine = () => articleStore.searchLine = searchValue.value;
 </script>
@@ -23,7 +24,7 @@ const updateSearchLine = () => articleStore.searchLine = searchValue.value;
                 <Transition name="fade">
                     <span v-if="articleStore.selectedTags.length>0" @click="articleStore.selectedTags.length=0" class="header__dropdown_group__clear">Очистить</span>
                 </Transition>
-                <DropdownButton @click="()=>showTagline.length === 0 ? showTagline.push('1') : showTagline.pop()" :name="'Фильтры'"/>
+                <DropdownButton @click="toggleTaglineVisibility()" :name="'Фильтры'"/>
             </div>
         </div>
         <el-collapse v-model="showTagline">
