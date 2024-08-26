@@ -59,7 +59,7 @@ const goBack = ()=>window.history.go(-1);
                 <div v-if="articleData" class="article flex flex-col gap-y-2.5">
                     <div class="article__header_container flex items-start justify-between">
                         <h2 class="article__title">{{ articleData.title }}</h2>
-                        <img @click="goBack()" src="/close.svg" alt="close icon">
+                        <img class="article__close" @click="goBack()" src="/close.svg" alt="close icon">
                     </div>
                     <div class="article__info flex items-center content-left gap-2.5">
                         <p class="article__info__date caption">{{ articleData.date }}</p>
@@ -125,6 +125,11 @@ const goBack = ()=>window.history.go(-1);
         transition: height .5s ease-in-out;
         position: relative;
     }
+
+}
+
+.article__close{
+    cursor: pointer;
 }
 
 .article_page .article {
